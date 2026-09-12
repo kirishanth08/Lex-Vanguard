@@ -1,0 +1,339 @@
+/* ==========================================================================
+   LEXVANGUARD — RESPONSIVE STYLES
+   Breakpoints: 320px, 375px, 414px, 768px, 992px, 1200px
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   DESKTOP & LARGE SCREENS (Min 1200px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1200px) {
+  .navbar-expand-xl .navbar-nav {
+    gap: 0.15rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   TABLET & MOBILE (Max 1199.98px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1199.98px) {
+  :root {
+    --header-height: 74px;
+  }
+
+  .navbar {
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+  }
+
+  /* Mobile / Tablet Header: Ensure brand does not crowd action buttons */
+  .navbar-brand {
+    gap: 0.55rem;
+  }
+
+  .brand-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-name {
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+  }
+
+  .brand-sub {
+    font-size: 0.54rem;
+    letter-spacing: 0.10em;
+  }
+
+  .navbar-collapse {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 1.25rem 1.4rem;
+    margin-top: 0.85rem;
+    box-shadow: var(--shadow-lg);
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .navbar-nav {
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.65rem 0.95rem !important;
+  }
+
+  .navbar-nav .nav-link.active::before {
+    left: 0.95rem;
+    right: auto;
+    width: 24px;
+    bottom: 4px;
+  }
+
+  .header-actions {
+    flex-wrap: wrap;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-color);
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .btn-consultation {
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.5rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .section-py {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .inner-hero {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .inner-hero-image-wrap {
+    margin-top: 2rem;
+  }
+
+  .hero-glass-card,
+  .inner-hero-content {
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+  }
+
+  .inner-hero-image-wrap img {
+    height: 440px;
+  }
+
+  .section-side-img-wrap {
+    height: 380px;
+    margin-bottom: 1.5rem;
+  }
+
+  .ip-card-img-wrap {
+    height: 250px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   MOBILE PORTRAIT (Max 767.98px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .inner-hero-image-wrap img {
+    height: 360px;
+  }
+
+  .hero-glass-card,
+  .inner-hero-content {
+    padding: 1.5rem 1.15rem;
+    border-radius: 16px;
+  }
+
+  .hero-dossier-tag {
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 0.75rem;
+    padding: 0.45rem 0.85rem;
+  }
+
+  .section-side-img-wrap {
+    height: 320px;
+    margin-bottom: 1.25rem;
+  }
+
+  .ip-card-img-wrap {
+    height: 230px;
+  }
+
+  .ip-card {
+    padding: 1.6rem 1.4rem;
+  }
+
+  .pricing-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .timeline-step {
+    gap: 1rem;
+  }
+
+  .timeline-step::before {
+    left: 19px;
+  }
+
+  .timeline-node {
+    width: 40px;
+    height: 40px;
+    font-size: 0.95rem;
+  }
+
+  .timeline-content {
+    padding: 1.25rem 1.25rem;
+  }
+
+  .timeline-content::before {
+    display: none;
+  }
+
+  h1 { font-size: clamp(1.9rem, 7vw, 2.4rem); }
+  h2 { font-size: clamp(1.5rem, 5.5vw, 1.95rem); }
+  h3 { font-size: clamp(1.25rem, 4.5vw, 1.55rem); }
+
+  .stat-box {
+    padding: 1.25rem 1rem;
+  }
+
+  .countdown-grid {
+    gap: 0.75rem;
+  }
+
+  .countdown-box {
+    min-width: 80px;
+    padding: 1rem 0.85rem;
+  }
+
+  .hero-trust-grid {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .footer-bottom {
+    text-align: center;
+  }
+
+  .footer-bottom .text-md-end {
+    text-align: center !important;
+    margin-top: 0.75rem;
+  }
+
+  .lv-toast-container {
+    left: 15px;
+    right: 15px;
+    top: 85px;
+  }
+
+  .lv-toast {
+    max-width: 100%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   MOBILE PHONES (Max 576px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 576px) {
+  .navbar-brand {
+    gap: 0.42rem;
+  }
+
+  .brand-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .brand-name {
+    font-size: 0.88rem !important;
+    letter-spacing: 0.01em;
+  }
+
+  .brand-sub {
+    font-size: 0.46rem !important;
+    letter-spacing: 0.06em;
+  }
+
+  /* Compact Mobile Actions to provide ample breathing room */
+  .d-flex.align-items-center.gap-2.d-xl-none {
+    gap: 0.32rem !important;
+  }
+
+  .btn-theme-toggle {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    font-size: 0.80rem;
+  }
+
+  .btn-rtl-toggle {
+    height: 32px;
+    padding: 0 0.38rem;
+    font-size: 0.70rem;
+    min-width: 32px;
+  }
+
+  .navbar-toggler {
+    padding: 0.2rem 0.32rem;
+  }
+
+  .navbar-toggler .bi-list {
+    font-size: 1.25rem !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   SMALL MOBILE PHONES (320px – 414px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 420px) {
+  body {
+    font-size: 15px;
+  }
+
+  .navbar-brand {
+    gap: 0.38rem;
+  }
+
+  .brand-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .brand-name {
+    font-size: 0.84rem !important;
+    letter-spacing: 0.005em;
+  }
+
+  .brand-sub {
+    font-size: 0.44rem !important;
+  }
+
+  .btn-custom-primary, .btn-custom-outline, .btn-custom-secondary {
+    padding: 0.7rem 1.25rem;
+    font-size: 0.92rem;
+    width: 100%;
+  }
+
+  .btn-theme-toggle {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    font-size: 0.78rem;
+  }
+
+  .btn-rtl-toggle {
+    height: 30px;
+    padding: 0 0.32rem;
+    font-size: 0.68rem;
+    min-width: 30px;
+  }
+
+  .countdown-box {
+    min-width: 70px;
+    padding: 0.85rem 0.5rem;
+  }
+
+  .countdown-val {
+    font-size: 1.8rem;
+  }
+
+  .countdown-lbl {
+    font-size: 0.7rem;
+  }
+}

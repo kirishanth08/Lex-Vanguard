@@ -1,0 +1,137 @@
+/* ==========================================================================
+   LEXVANGUARD — RTL (RIGHT TO LEFT) STYLES
+   Full support for Arabic, Hebrew and RTL scripts
+   ========================================================================== */
+
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Base text alignment */
+[dir="rtl"] body {
+  text-align: right;
+}
+
+[dir="rtl"] .text-start {
+  text-align: right !important;
+}
+
+[dir="rtl"] .text-end {
+  text-align: left !important;
+}
+
+/* Navbar */
+[dir="rtl"] .navbar-nav {
+  padding-right: 0;
+}
+
+[dir="rtl"] .navbar-nav .nav-link.active::after {
+  right: 0.85rem;
+  left: auto;
+}
+
+[dir="rtl"] .dropdown-menu {
+  text-align: right;
+}
+
+/* Buttons and icon flips */
+[dir="rtl"] .bi-arrow-right,
+[dir="rtl"] .bi-chevron-right {
+  transform: scaleX(-1);
+  display: inline-block;
+}
+
+[dir="rtl"] .ip-card-link:hover i {
+  transform: translateX(-4px) scaleX(-1);
+}
+
+/* Timeline */
+[dir="rtl"] .timeline-step::before {
+  right: 24px;
+  left: auto;
+}
+
+[dir="rtl"] .timeline-content::before {
+  right: -9px;
+  left: auto;
+  border-left: none;
+  border-bottom: none;
+  border-right: 1px solid var(--border-color);
+  border-top: 1px solid var(--border-color);
+}
+
+/* Blog Category Badge */
+[dir="rtl"] .blog-card-category {
+  right: 15px;
+  left: auto;
+}
+
+@media (max-width: 767.98px) {
+  [dir="rtl"] .timeline-step::before {
+    right: 19px;
+    left: auto;
+  }
+}
+
+/* Breadcrumbs */
+[dir="rtl"] .breadcrumb-item + .breadcrumb-item::before {
+  float: right;
+  padding-left: var(--bs-breadcrumb-item-padding-x);
+  padding-right: 0;
+  transform: scaleX(-1);
+}
+
+/* Search bar */
+[dir="rtl"] .search-input-wrap i {
+  right: 1.1rem;
+  left: auto;
+}
+
+[dir="rtl"] .search-input-wrap .form-control {
+  padding-right: 2.8rem;
+  padding-left: 1rem;
+}
+
+/* Footer */
+[dir="rtl"] .footer-links a:hover {
+  padding-right: 4px;
+  padding-left: 0;
+}
+
+[dir="rtl"] .footer-bottom .text-md-end {
+  text-align: left !important;
+}
+
+/* Back to Top */
+[dir="rtl"] .back-to-top {
+  left: 25px;
+  right: auto;
+}
+
+/* Toast Container */
+[dir="rtl"] .lv-toast-container {
+  left: 25px;
+  right: auto;
+}
+
+[dir="rtl"] .lv-toast {
+  border-left: 1px solid var(--border-color);
+  border-right: 4px solid var(--accent-color);
+  transform: translateX(-50px);
+}
+
+[dir="rtl"] .lv-toast.show {
+  transform: translateX(0);
+}
+
+/* Accordion icon */
+[dir="rtl"] .accordion-button::after {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Pricing features */
+[dir="rtl"] .pricing-features li {
+  text-align: right;
+}
