@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="44" height="44">
+  <defs>
+    <linearGradient id="lvGoldGrad" x1="4" y1="4" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E5C365"/>
+      <stop offset="50%" stop-color="#C89B3C"/>
+      <stop offset="100%" stop-color="#A27724"/>
+    </linearGradient>
+    <linearGradient id="lvGoldGleam" x1="10" y1="6" x2="34" y2="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFF3CE"/>
+      <stop offset="35%" stop-color="#E5C365"/>
+      <stop offset="100%" stop-color="#C89B3C"/>
+    </linearGradient>
+    <linearGradient id="lvShieldFill" x1="22" y1="2" x2="22" y2="42" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#16253E"/>
+      <stop offset="100%" stop-color="#080F1A"/>
+    </linearGradient>
+  </defs>
+  <path d="M22 3.5L37.5 12.5V31.5L22 40.5L6.5 31.5V12.5L22 3.5Z" fill="url(#lvShieldFill)" stroke="url(#lvGoldGrad)" stroke-width="1.8" stroke-linejoin="round"/>
+  <path d="M22 6.5L34.5 14V30L22 37.5L9.5 30V14L22 6.5Z" stroke="url(#lvGoldGrad)" stroke-width="0.8" stroke-dasharray="2 2" stroke-opacity="0.75" stroke-linejoin="round"/>
+  <path d="M14 16V29H22V26.8H16.8V16H14Z" fill="url(#lvGoldGleam)"/>
+  <path d="M22 29L28.8 16H25.8L21.8 24.2L20.2 21H18.2L21 26.5L22 29Z" fill="url(#lvGoldGrad)"/>
+  <path d="M28.8 16H31.8L23.4 31.5H20.6L28.8 16Z" fill="url(#lvGoldGleam)"/>
+  <path d="M22 9L23.2 12.2L26.5 13.5L23.2 14.8L22 18L20.8 14.8L17.5 13.5L20.8 12.2L22 9Z" fill="url(#lvGoldGleam)"/>
+  <circle cx="33" cy="27" r="3.2" stroke="url(#lvGoldGrad)" stroke-width="0.6" fill="#080F1A"/>
+  <text x="33" y="28.8" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="3.2" font-weight="800" fill="#E5C365" text-anchor="middle">R</text>
+</svg>
