@@ -35,17 +35,31 @@
      2. ACTIVE NAV LINKS DETECTION
      -------------------------------------------------------------------------- */
   function initActiveNavLinks() {
-    const currentPath = window.location.pathname;
-    let filename = currentPath.substring(currentPath.lastIndexOf('/') + 1) || 'index.html';
-    if (filename.includes('#')) filename = filename.split('#')[0];
-    if (filename.includes('?')) filename = filename.split('?')[0];
+    let currentPath = window.location.pathname;
+    if (currentPath.endsWith('/')) currentPath = currentPath.slice(0, -1);
+    let pageSlug = currentPath.substring(currentPath.lastIndexOf('/') + 1) || 'index';
+    pageSlug = pageSlug.replace('.html', '').split('#')[0].split('?')[0].toLowerCase();
+    if (!pageSlug || pageSlug === '') pageSlug = 'index';
 
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link, .dropdown-item');
+    let matched = false;
 
     navLinks.forEach(link => {
       const href = link.getAttribute('href');
-      if (href && (href === filename || (filename === '' && href === 'index.html'))) {
+      if (!href || href === '#') return;
+      
+      let linkSlug = href.substring(href.lastIndexOf('/') + 1).replace('.html', '').split('#')[0].split('?')[0].toLowerCase();
+      if (!linkSlug || linkSlug === '') linkSlug = 'index';
+
+      const isMatch = (linkSlug === pageSlug) || 
+                      (pageSlug === 'index' && (linkSlug === 'index' || linkSlug === 'home-1')) ||
+                      (pageSlug.startsWith('service') && linkSlug === 'services') ||
+                      (pageSlug.startsWith('blog') && linkSlug === 'blog') ||
+                      (pageSlug === 'fees' && linkSlug === 'pricing');
+
+      if (isMatch) {
         link.classList.add('active');
+        matched = true;
         const parentDropdown = link.closest('.dropdown');
         if (parentDropdown) {
           const toggle = parentDropdown.querySelector('.dropdown-toggle');
@@ -55,6 +69,12 @@
         link.classList.remove('active');
       }
     });
+
+    // Fallback: If on root/index and no link matched, highlight Home dropdown toggle
+    if (!matched && (pageSlug === 'index' || pageSlug === '')) {
+      const homeToggle = document.querySelector('.navbar-nav .dropdown-toggle');
+      if (homeToggle) homeToggle.classList.add('active');
+    }
   }
 
   /* --------------------------------------------------------------------------

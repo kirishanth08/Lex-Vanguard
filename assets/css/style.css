@@ -603,15 +603,15 @@ img {
 .btn-custom-primary {
   background: var(--accent-gradient);
   background-size: 200% auto;
-  color: #09121f;
-  font-family: var(--font-heading);
+  color: #050a12;
+  font-family: var(--font-main);
   font-weight: 800;
-  font-size: 0.95rem;
-  letter-spacing: 0.05em;
+  font-size: 0.94rem;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   padding: 0.85rem 1.95rem;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 0 6px 18px var(--accent-glow);
   display: inline-flex;
   align-items: center;
@@ -620,11 +620,13 @@ img {
   transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .btn-custom-primary:hover {
   background-position: right center;
-  color: #050a12;
+  color: #000000;
   transform: translateY(-3px);
   box-shadow: var(--shadow-hover);
 }
@@ -632,10 +634,10 @@ img {
 .btn-custom-outline {
   background: transparent;
   color: var(--text-primary);
-  font-family: var(--font-heading);
+  font-family: var(--font-main);
   font-weight: 700;
   font-size: 0.92rem;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   padding: 0.82rem 1.9rem;
   border-radius: 10px;
@@ -645,6 +647,7 @@ img {
   justify-content: center;
   gap: 0.65rem;
   transition: all var(--transition-fast);
+  -webkit-font-smoothing: antialiased;
 }
 
 .btn-custom-outline:hover {
@@ -901,8 +904,17 @@ img {
 
 .ip-card-title {
   font-size: 1.35rem;
-  margin-bottom: 0.75rem;
-  line-height: 1.3;
+  margin-bottom: 0.85rem;
+  line-height: 1.35;
+  min-height: 3.6rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+@media (max-width: 767.98px) {
+  .ip-card-title {
+    min-height: auto;
+  }
 }
 
 .ip-card-desc {
@@ -910,7 +922,7 @@ img {
   font-size: 0.96rem;
   line-height: 1.68;
   margin-bottom: 1.45rem;
-  flex-grow: 1;
+  flex: 1 1 auto;
 }
 
 .ip-card-link {
@@ -1367,30 +1379,29 @@ img {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
-/* Hero Trust Grid (Professional 3-Column Card Layout) */
+/* Hero Trust Grid (Professional 3-Column Aligned Card Layout) */
 .hero-trust-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.9rem;
-  margin-top: 1.5rem;
+  gap: 0.75rem;
+  margin-top: 1.6rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--border-gold);
 }
 
 .hero-trust-card {
-  background: var(--surface-glass);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: var(--surface-card);
   border: 1px solid var(--border-color);
   border-radius: 12px;
-  padding: 0.95rem 1rem;
+  padding: 0.85rem 0.85rem;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.65rem;
   box-shadow: var(--shadow-xs);
   transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
   position: relative;
   overflow: hidden;
+  min-width: 0;
 }
 
 .hero-trust-card::before {
@@ -1418,13 +1429,14 @@ img {
 .hero-trust-icon {
   width: 38px;
   height: 38px;
+  min-width: 38px;
   border-radius: 10px;
   background: var(--accent-light);
   color: var(--accent-color);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   flex-shrink: 0;
   border: 1px solid var(--border-gold);
   transition: all var(--transition-fast);
@@ -1439,24 +1451,28 @@ img {
 .hero-trust-info {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   min-width: 0;
+  flex: 1 1 auto;
 }
 
 .hero-trust-value {
   font-family: var(--font-mono);
-  font-size: 0.96rem;
+  font-size: 0.90rem;
   font-weight: 800;
   color: var(--text-primary);
-  line-height: 1.15;
+  line-height: 1.2;
   white-space: nowrap;
+  letter-spacing: -0.01em;
 }
 
 .hero-trust-label {
-  font-size: 0.76rem;
+  font-size: 0.73rem;
   color: var(--text-muted);
   font-weight: 600;
   margin-top: 2px;
   white-space: nowrap;
+  line-height: 1.2;
   text-overflow: ellipsis;
   overflow: hidden;
 }
@@ -1611,11 +1627,13 @@ img {
   background-color: var(--surface-card);
   border: 1px solid var(--border-color);
   border-radius: 16px;
-  overflow: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   box-shadow: var(--shadow-sm);
 }
 
 .table-custom {
+  min-width: 660px;
   width: 100%;
   margin-bottom: 0;
   color: var(--text-primary);
@@ -1950,6 +1968,9 @@ img {
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-normal);
   text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .team-card:hover {
@@ -1977,6 +1998,9 @@ img {
 
 .team-body {
   padding: 1.8rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .team-name {
@@ -1992,18 +2016,27 @@ img {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-bottom: 0.85rem;
+  min-height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .team-bio {
   font-size: 0.9rem;
   color: var(--text-secondary);
   margin-bottom: 1.2rem;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .team-socials {
   display: flex;
   justify-content: center;
   gap: 0.65rem;
+  margin-top: auto;
 }
 
 .team-social-btn {
@@ -2544,12 +2577,299 @@ img {
 }
 
 .bg-dark-accent .form-control::placeholder {
-  color: #94a3b8;
+  color: #cbd5e1 !important;
+  opacity: 0.85;
 }
 
 .bg-dark-accent .text-light.opacity-75 {
   opacity: 0.95 !important;
   color: #cbd5e1 !important;
+}
+
+/* Fast-Track Card inside Dark Accent Section */
+.fast-track-form-card {
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+}
+
+.fast-track-form-card .form-control::placeholder,
+.fast-track-form-card textarea::placeholder {
+  color: #94a3b8 !important;
+  opacity: 0.9;
+}
+
+/* Contact: Worldwide Footprint Compact Badges (Left Aligned & Reduced Width) */
+.footprint-badge {
+  display: inline-block !important;
+  align-self: flex-start !important;
+  text-align: left !important;
+  width: fit-content !important;
+  max-width: max-content !important;
+  padding: 0.35rem 0.75rem !important;
+  border-radius: 6px !important;
+  font-size: 0.76rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+}
+
+/* Equal Width & Even Alignment for Side-by-Side CTA Button Pairs */
+.hero-cta-pair,
+.cta-button-pair {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 1rem;
+  width: 100%;
+  max-width: 530px;
+}
+
+.hero-cta-pair > a,
+.hero-cta-pair > button,
+.hero-cta-pair .btn-custom-primary,
+.hero-cta-pair .btn-custom-outline,
+.cta-button-pair > a,
+.cta-button-pair > button,
+.cta-button-pair .btn-custom-primary,
+.cta-button-pair .btn-custom-outline,
+.cta-button-pair .btn-outline-accent {
+  flex: 1 1 0;
+  width: 50%;
+  min-width: 0;
+  padding: 0.85rem 1.15rem;
+  font-family: var(--font-main);
+  font-weight: 800;
+  font-size: 0.88rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-align: center;
+  justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  box-sizing: border-box;
+  min-height: 48px;
+}
+
+/* Hero Text Hyperlink (Services Hero 3rd CTA replacement) */
+.hero-text-hyperlink {
+  color: var(--accent-color);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  transition: all var(--transition-fast);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+}
+
+.hero-text-hyperlink:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+  transform: translateX(3px);
+}
+
+/* --------------------------------------------------------------------------
+   PAGE-SPECIFIC HERO COMPOSITIONS & DIFFERENTIATION
+   -------------------------------------------------------------------------- */
+
+/* 1. About Page Heritage Hero */
+.hero-about-showcase {
+  position: relative;
+}
+
+.hero-about-frame {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1.5px solid var(--border-gold);
+  box-shadow: var(--shadow-lg);
+}
+
+.hero-about-frame img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.hero-about-seal {
+  position: absolute;
+  bottom: -18px;
+  left: -18px;
+  background: var(--surface-card);
+  border: 1.5px solid var(--border-gold);
+  padding: 1rem 1.25rem;
+  border-radius: 14px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  z-index: 3;
+}
+
+[data-theme="dark"] .hero-about-seal {
+  background: #0f192d;
+}
+
+/* 2. Services Page Interactive Practice Matrix Hero */
+.hero-services-matrix {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.hero-service-pillar-card {
+  background: var(--surface-card);
+  border: 1.5px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1.15rem 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.hero-service-pillar-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3.5px;
+  background: var(--accent-gradient);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.hero-service-pillar-card:hover {
+  transform: translateX(6px);
+  border-color: var(--border-gold);
+  box-shadow: var(--shadow-md);
+  color: var(--text-primary);
+}
+
+.hero-service-pillar-card:hover::before {
+  opacity: 1;
+}
+
+.hero-service-pillar-card .pillar-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--accent-light);
+  color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  border: 1px solid var(--border-gold);
+}
+
+/* Live Turnaround Guarantee Chip - High Contrast Solid Luxury Chip for Light & Dark Mode */
+.hero-privilege-chip {
+  background: var(--surface-card);
+  border: 1.5px solid var(--border-gold);
+  border-radius: 14px;
+  padding: 0.95rem 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.hero-privilege-chip:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-color);
+}
+
+.hero-privilege-chip .chip-text {
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 0.90rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.hero-privilege-chip .chip-badge {
+  background: var(--accent-gradient);
+  color: #050a12 !important;
+  font-family: var(--font-main);
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  padding: 0.38rem 0.95rem;
+  border-radius: 50px;
+  box-shadow: 0 2px 8px var(--accent-glow);
+  white-space: nowrap;
+}
+
+/* 3. Pricing Page Transparency Spotlight Hero */
+.hero-pricing-spotlight {
+  background: var(--surface-card);
+  border: 1.5px solid var(--border-gold);
+  border-radius: 20px;
+  padding: 2.2rem 2.4rem;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-pricing-spotlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--accent-gradient);
+}
+
+.pricing-spotlight-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--accent-gradient);
+  color: #09121f;
+  font-weight: 800;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  margin-bottom: 1.25rem;
+}
+
+/* 4. Blog Gazette Editorial Hero */
+.hero-blog-showcase {
+  background: var(--surface-card);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  transition: transform var(--transition-normal);
+}
+
+.hero-blog-showcase:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-gold);
+}
+
+.hero-blog-showcase-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.hero-blog-showcase-content {
+  padding: 1.6rem 1.8rem;
 }
 
 

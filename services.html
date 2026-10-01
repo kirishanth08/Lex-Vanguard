@@ -176,22 +176,69 @@
             <p class="lead mb-4">
               Strategic, multi-jurisdiction filing assistance across trademarks, patents, and copyrights — unified with our transparent 6-stage prosecution roadmap and statutory timelines.
             </p>
-            <div class="d-flex flex-wrap gap-3">
+            <div class="hero-cta-pair mb-4">
               <a href="#services-grid" class="btn-custom-primary">
                 <i class="bi bi-grid-fill"></i> Explore 6 Core Services
               </a>
               <a href="#process" class="btn-custom-outline">
                 <i class="bi bi-diagram-3-fill"></i> View 6-Stage Process
               </a>
-              <a href="fees.html" class="btn-custom-outline">
-                <i class="bi bi-calculator"></i> View Statutory Fees
-              </a>
             </div>
           </div>
 
           <div class="col-lg-6">
-            <div class="inner-hero-image-wrap">
-              <img src="assets/images/services/services-overview.jpg" alt="Intellectual Property Assets, Patent Drawings, Brass Scales, and Trademark Certificates" class="img-fluid rounded-4">
+            <!-- Distinct Practice Matrix Hero Composition -->
+            <div class="hero-services-matrix">
+              <!-- Pillar 1: Trademarks -->
+              <a href="#services-grid" class="hero-service-pillar-card" onclick="document.querySelector('[data-filter=\'trademark\']')?.click()">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="pillar-icon">
+                    <i class="bi bi-patch-check-fill"></i>
+                  </div>
+                  <div>
+                    <h5 class="fw-bold mb-1">Trademarks &amp; Brand Defense</h5>
+                    <span class="small text-muted">Clearance Search &bull; Federal USPTO &bull; Madrid System</span>
+                  </div>
+                </div>
+                <i class="bi bi-arrow-right text-accent fs-5"></i>
+              </a>
+
+              <!-- Pillar 2: Patents -->
+              <a href="#services-grid" class="hero-service-pillar-card" onclick="document.querySelector('[data-filter=\'patent\']')?.click()">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="pillar-icon">
+                    <i class="bi bi-lightbulb-fill"></i>
+                  </div>
+                  <div>
+                    <h5 class="fw-bold mb-1">Patent Practice &amp; Novelty</h5>
+                    <span class="small text-muted">Prior Art &bull; Utility &amp; Provisional &bull; PCT Treaties</span>
+                  </div>
+                </div>
+                <i class="bi bi-arrow-right text-accent fs-5"></i>
+              </a>
+
+              <!-- Pillar 3: Copyrights -->
+              <a href="#services-grid" class="hero-service-pillar-card" onclick="document.querySelector('[data-filter=\'copyright\']')?.click()">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="pillar-icon">
+                    <i class="bi bi-code-slash"></i>
+                  </div>
+                  <div>
+                    <h5 class="fw-bold mb-1">Software &amp; Digital Copyrights</h5>
+                    <span class="small text-muted">Codebase Audits &bull; Repository Escrow &bull; Library Protection</span>
+                  </div>
+                </div>
+                <i class="bi bi-arrow-right text-accent fs-5"></i>
+              </a>
+
+              <!-- Live Turnaround Guarantee Chip - High Contrast in Light and Dark Mode -->
+              <div class="hero-privilege-chip">
+                <div class="chip-text">
+                  <i class="bi bi-shield-fill-check text-accent fs-5"></i>
+                  <span>Full Attorney Privilege on All Inquiries</span>
+                </div>
+                <span class="chip-badge">24h Response</span>
+              </div>
             </div>
           </div>
         </div>
