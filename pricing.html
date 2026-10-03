@@ -342,64 +342,80 @@
           <p class="section-desc">Review exact deliverables and legal milestones included across each plan.</p>
         </div>
 
-        <div class="table-custom-responsive">
-          <table class="table-custom">
+        <!-- Mobile Table Helper & Plan Selector (360px & mobile view) -->
+        <div class="d-md-none mb-3">
+          <div class="d-flex align-items-center justify-content-between mb-2 px-1">
+            <span class="badge bg-warning-subtle text-warning border border-warning-subtle px-2 py-1 small">
+              <i class="bi bi-arrows-expand me-1"></i> Swipe columns
+            </span>
+            <span class="small text-secondary fw-semibold">All 4 Columns Available &rarr;</span>
+          </div>
+          <div class="mobile-table-pills d-flex gap-1 overflow-x-auto pb-1" role="tablist" aria-label="Compare Plans">
+            <button type="button" class="btn btn-sm btn-table-tier active flex-fill py-1 px-2 text-nowrap" data-table-tier="all">All Plans</button>
+            <button type="button" class="btn btn-sm btn-table-tier flex-fill py-1 px-2 text-nowrap" data-table-tier="basic">Basic</button>
+            <button type="button" class="btn btn-sm btn-table-tier flex-fill py-1 px-2 text-nowrap" data-table-tier="pro">Professional</button>
+            <button type="button" class="btn btn-sm btn-table-tier flex-fill py-1 px-2 text-nowrap" data-table-tier="biz">Business</button>
+          </div>
+        </div>
+
+        <div class="table-custom-responsive" id="comparisonTableWrapper">
+          <table class="table-custom" id="pricingComparisonTable">
             <thead>
               <tr>
-                <th>Feature / Legal Deliverable</th>
-                <th>Basic Clearance</th>
-                <th>Professional Filing</th>
-                <th>Business Portfolio</th>
+                <th class="col-deliverable">Feature / Legal Deliverable</th>
+                <th class="col-basic">Basic Clearance</th>
+                <th class="col-pro">Professional Filing</th>
+                <th class="col-biz">Business Portfolio</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Attorney Consultation</strong></td>
-                <td>30 Minutes</td>
-                <td>60 Minutes</td>
-                <td>Unlimited Strategic Intake</td>
+                <td class="col-deliverable"><strong>Attorney Consultation</strong></td>
+                <td class="col-basic">30 Minutes</td>
+                <td class="col-pro">60 Minutes</td>
+                <td class="col-biz">Unlimited Strategic Intake</td>
               </tr>
               <tr>
-                <td><strong>Comprehensive Conflict Clearance</strong></td>
-                <td><i class="bi bi-check-circle-fill text-accent fs-5"></i> Included</td>
-                <td><i class="bi bi-check-circle-fill text-accent fs-5"></i> Included</td>
-                <td><i class="bi bi-check-circle-fill text-accent fs-5"></i> Multi-Jurisdiction</td>
+                <td class="col-deliverable"><strong>Comprehensive Conflict Clearance</strong></td>
+                <td class="col-basic"><i class="bi bi-check-circle-fill text-accent fs-5"></i> Included</td>
+                <td class="col-pro"><i class="bi bi-check-circle-fill text-accent fs-5"></i> Included</td>
+                <td class="col-biz"><i class="bi bi-check-circle-fill text-accent fs-5"></i> Multi-Jurisdiction</td>
               </tr>
               <tr>
-                <td><strong>Nice Class Specification Drafting</strong></td>
-                <td>Recommendations only</td>
-                <td>1 Complete Class</td>
-                <td>Up to 2 Classes Included</td>
+                <td class="col-deliverable"><strong>Nice Class Specification Drafting</strong></td>
+                <td class="col-basic">Recommendations only</td>
+                <td class="col-pro">1 Complete Class</td>
+                <td class="col-biz">Up to 2 Classes Included</td>
               </tr>
               <tr>
-                <td><strong>Official Government Filing</strong></td>
-                <td><span class="text-muted">—</span></td>
-                <td><i class="bi bi-check-circle-fill text-accent fs-5"></i> Electronic</td>
-                <td><i class="bi bi-check-circle-fill text-accent fs-5"></i> Multi-Registry</td>
+                <td class="col-deliverable"><strong>Official Government Filing</strong></td>
+                <td class="col-basic"><span class="text-muted">—</span></td>
+                <td class="col-pro"><i class="bi bi-check-circle-fill text-accent fs-5"></i> Electronic</td>
+                <td class="col-biz"><i class="bi bi-check-circle-fill text-accent fs-5"></i> Multi-Registry</td>
               </tr>
               <tr>
-                <td><strong>Provisional Patent Filing Support</strong></td>
-                <td><span class="text-muted">—</span></td>
-                <td><span class="text-muted">—</span></td>
-                <td><i class="bi bi-check-circle-fill text-accent fs-5"></i> Included (1 Invention)</td>
+                <td class="col-deliverable"><strong>Provisional Patent Filing Support</strong></td>
+                <td class="col-basic"><span class="text-muted">—</span></td>
+                <td class="col-pro"><span class="text-muted">—</span></td>
+                <td class="col-biz"><i class="bi bi-check-circle-fill text-accent fs-5"></i> Included (1 Invention)</td>
               </tr>
               <tr>
-                <td><strong>Copyright Deposit Support</strong></td>
-                <td><span class="text-muted">—</span></td>
-                <td><span class="text-muted">—</span></td>
-                <td><i class="bi bi-check-circle-fill text-accent fs-5"></i> 1 Registration</td>
+                <td class="col-deliverable"><strong>Copyright Deposit Support</strong></td>
+                <td class="col-basic"><span class="text-muted">—</span></td>
+                <td class="col-pro"><span class="text-muted">—</span></td>
+                <td class="col-biz"><i class="bi bi-check-circle-fill text-accent fs-5"></i> 1 Registration</td>
               </tr>
               <tr>
-                <td><strong>Procedural Office Action Responses</strong></td>
-                <td><span class="text-muted">—</span></td>
-                <td><i class="bi bi-check-circle-fill text-accent fs-5"></i> Included</td>
-                <td><i class="bi bi-check-circle-fill text-accent fs-5"></i> Included</td>
+                <td class="col-deliverable"><strong>Procedural Office Action Responses</strong></td>
+                <td class="col-basic"><span class="text-muted">—</span></td>
+                <td class="col-pro"><i class="bi bi-check-circle-fill text-accent fs-5"></i> Included</td>
+                <td class="col-biz"><i class="bi bi-check-circle-fill text-accent fs-5"></i> Included</td>
               </tr>
               <tr>
-                <td><strong>Docket Monitoring Period</strong></td>
-                <td><span class="text-muted">—</span></td>
-                <td>12 Months</td>
-                <td>24 Months</td>
+                <td class="col-deliverable"><strong>Docket Monitoring Period</strong></td>
+                <td class="col-basic"><span class="text-muted">—</span></td>
+                <td class="col-pro">12 Months</td>
+                <td class="col-biz">24 Months</td>
               </tr>
             </tbody>
           </table>

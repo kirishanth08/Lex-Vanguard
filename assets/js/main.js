@@ -13,6 +13,7 @@
     initCounterAnimation();
     initCountdownTimer();
     initDropdownHover();
+    initPricingTablePills();
   });
 
   /* --------------------------------------------------------------------------
@@ -337,6 +338,38 @@
             window.location.href = href;
           }
         });
+      });
+    });
+  }
+
+  /* --------------------------------------------------------------------------
+     8. MOBILE PRICING TABLE TIER SELECTOR
+     -------------------------------------------------------------------------- */
+  function initPricingTablePills() {
+    const pillButtons = document.querySelectorAll('[data-table-tier]');
+    const tableWrapper = document.getElementById('comparisonTableWrapper');
+    const table = document.getElementById('pricingComparisonTable');
+    if (!pillButtons.length || !tableWrapper || !table) return;
+
+    pillButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        pillButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const tier = btn.getAttribute('data-table-tier');
+        const targetColHeader = table.querySelector(`th.col-${tier}`);
+
+        if (tier === 'all' || !targetColHeader) {
+          tableWrapper.scrollTo({ left: 0, behavior: 'smooth' });
+          table.querySelectorAll('th, td').forEach(el => el.classList.remove('table-tier-highlight'));
+        } else {
+          const firstColWidth = table.querySelector('th:first-child')?.offsetWidth || 115;
+          const targetLeft = targetColHeader.offsetLeft - firstColWidth;
+          tableWrapper.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
+
+          table.querySelectorAll('th, td').forEach(el => el.classList.remove('table-tier-highlight'));
+          table.querySelectorAll(`.col-${tier}`).forEach(el => el.classList.add('table-tier-highlight'));
+        }
       });
     });
   }

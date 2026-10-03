@@ -20,6 +20,13 @@
     --header-height: 74px;
   }
 
+  .lv-header {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1040 !important;
+  }
+
   .navbar {
     padding-top: 0.65rem;
     padding-bottom: 0.65rem;
@@ -304,21 +311,72 @@
     margin-bottom: 1.25rem !important;
   }
 
-  /* Table horizontal scrolling for small screens */
+  /* Table horizontal scrolling for small screens with sticky feature column */
   .table-custom-responsive {
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch !important;
     border-radius: 12px;
+    position: relative;
+  }
+
+  .table-custom-responsive::-webkit-scrollbar {
+    height: 6px;
+    display: block !important;
+  }
+
+  .table-custom-responsive::-webkit-scrollbar-track {
+    background: var(--bg-alt);
+    border-radius: 3px;
+  }
+
+  .table-custom-responsive::-webkit-scrollbar-thumb {
+    background: var(--border-gold);
+    border-radius: 3px;
   }
 
   .table-custom {
-    min-width: 620px !important;
+    min-width: 530px !important;
   }
 
   .table-custom th,
   .table-custom td {
-    padding: 0.85rem 1rem !important;
-    font-size: 0.85rem !important;
+    padding: 0.75rem 0.65rem !important;
+    font-size: 0.82rem !important;
+  }
+
+  .table-custom th:first-child,
+  .table-custom td:first-child {
+    position: sticky !important;
+    left: 0 !important;
+    z-index: 4 !important;
+    background-color: var(--surface-card) !important;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.12);
+    min-width: 130px !important;
+    max-width: 145px !important;
+  }
+
+  .table-custom th:first-child {
+    background-color: var(--bg-alt) !important;
+    z-index: 5 !important;
+  }
+
+  .btn-table-tier {
+    border: 1px solid var(--border-color);
+    background-color: var(--surface-card);
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all var(--transition-fast);
+    box-shadow: none !important;
+  }
+
+  .btn-table-tier:hover,
+  .btn-table-tier.active {
+    background: var(--accent-gradient) !important;
+    color: #09121f !important;
+    border-color: transparent !important;
+    font-weight: 700;
   }
 
   .hero-trust-grid {
@@ -356,6 +414,39 @@
 @media (max-width: 420px) {
   body {
     font-size: 15px;
+  }
+
+  .lv-header {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1040 !important;
+  }
+
+  /* 360px Pricing Table Columns: clear side-by-side display */
+  .table-custom {
+    min-width: 470px !important;
+  }
+
+  .table-custom th,
+  .table-custom td {
+    padding: 0.65rem 0.5rem !important;
+    font-size: 0.77rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .table-custom th:first-child,
+  .table-custom td:first-child {
+    min-width: 115px !important;
+    max-width: 125px !important;
+    font-size: 0.76rem !important;
+    padding: 0.65rem 0.5rem !important;
+  }
+
+  .table-custom .col-basic,
+  .table-custom .col-pro,
+  .table-custom .col-biz {
+    min-width: 115px !important;
   }
 
   .navbar-brand {

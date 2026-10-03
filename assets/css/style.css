@@ -131,6 +131,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: clip;
 }
 
 body {
@@ -140,7 +141,7 @@ body {
   line-height: 1.68;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
   transition: background-color var(--transition-normal), color var(--transition-normal);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -266,9 +267,11 @@ img {
    4. GLOBAL NAVBAR & HEADER
    -------------------------------------------------------------------------- */
 .lv-header {
-  position: sticky;
-  top: 0;
-  z-index: 1020;
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1040 !important;
+  width: 100%;
   background-color: var(--surface-glass);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -552,7 +555,7 @@ img {
   padding: 0.62rem 1.35rem;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 4px 14px var(--accent-glow);
+  box-shadow: none;
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
@@ -581,7 +584,7 @@ img {
   background-position: right center;
   color: #050a12 !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px var(--accent-glow);
+  box-shadow: none;
 }
 
 /* Mobile Hamburger Toggle */
@@ -612,7 +615,7 @@ img {
   padding: 0.85rem 1.95rem;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 6px 18px var(--accent-glow);
+  box-shadow: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -627,8 +630,8 @@ img {
 .btn-custom-primary:hover {
   background-position: right center;
   color: #000000;
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+  box-shadow: none;
 }
 
 .btn-custom-outline {
@@ -647,6 +650,7 @@ img {
   justify-content: center;
   gap: 0.65rem;
   transition: all var(--transition-fast);
+  box-shadow: none;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -655,7 +659,7 @@ img {
   border-color: var(--accent-color);
   color: var(--accent-color);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
+  box-shadow: none;
 }
 
 .btn-custom-secondary {
@@ -674,13 +678,14 @@ img {
   justify-content: center;
   gap: 0.65rem;
   transition: all var(--transition-fast);
+  box-shadow: none;
 }
 
 .btn-custom-secondary:hover {
   background-color: var(--secondary-light);
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  box-shadow: none;
 }
 
 /* --------------------------------------------------------------------------
@@ -1095,7 +1100,7 @@ img {
   color: #0F172A;
   border: 1.5px solid #0F172A;
   font-weight: 700;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
 }
 
 .hero-home-2-section .btn-custom-outline:hover {
@@ -1150,7 +1155,7 @@ img {
   background: rgba(15, 23, 42, 0.85);
   color: #FFFFFF;
   border-color: rgba(212, 175, 55, 0.6);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  box-shadow: none;
 }
 
 [data-theme="dark"] .hero-home-2-section .btn-custom-outline:hover {
@@ -2611,30 +2616,24 @@ img {
   letter-spacing: 0.02em !important;
 }
 
-/* Equal Width & Even Alignment for Side-by-Side CTA Button Pairs */
-.hero-cta-pair,
-.cta-button-pair {
+/* Equal Width & Responsive Alignment for Side-by-Side CTA Button Pairs */
+.hero-cta-pair {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: stretch;
   gap: 1rem;
   width: 100%;
-  max-width: 530px;
+  max-width: 560px;
 }
 
 .hero-cta-pair > a,
 .hero-cta-pair > button,
 .hero-cta-pair .btn-custom-primary,
-.hero-cta-pair .btn-custom-outline,
-.cta-button-pair > a,
-.cta-button-pair > button,
-.cta-button-pair .btn-custom-primary,
-.cta-button-pair .btn-custom-outline,
-.cta-button-pair .btn-outline-accent {
-  flex: 1 1 0;
-  width: 50%;
+.hero-cta-pair .btn-custom-outline {
+  flex: 1 1 200px;
   min-width: 0;
-  padding: 0.85rem 1.15rem;
+  padding: 0.85rem 1.35rem;
   font-family: var(--font-main);
   font-weight: 800;
   font-size: 0.88rem;
@@ -2644,9 +2643,81 @@ img {
   justify-content: center;
   display: inline-flex;
   align-items: center;
-  white-space: nowrap;
+  white-space: normal;
+  line-height: 1.35;
   box-sizing: border-box;
   min-height: 48px;
+  box-shadow: none !important;
+}
+
+.cta-button-pair {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+  width: 100%;
+}
+
+.cta-button-pair > a,
+.cta-button-pair > button,
+.cta-button-pair .btn-custom-primary,
+.cta-button-pair .btn-custom-outline,
+.cta-button-pair .btn-outline-accent {
+  flex: 1 1 auto;
+  width: auto;
+  min-width: 0;
+  padding: 0.85rem 1.4rem;
+  font-family: var(--font-main);
+  font-weight: 800;
+  font-size: 0.88rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-align: center;
+  justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  white-space: normal;
+  line-height: 1.35;
+  box-sizing: border-box;
+  min-height: 48px;
+  box-shadow: none !important;
+}
+
+/* Universal Non-Shadowy CTA standard across entire site */
+.btn-consultation,
+.btn-custom-primary,
+.btn-custom-outline,
+.btn-custom-secondary,
+.btn-outline-accent,
+.hero-cta-pair a,
+.hero-cta-pair button,
+.cta-button-pair a,
+.cta-button-pair button,
+.pricing-card .btn-custom-primary,
+.pricing-card .btn-custom-outline,
+.hero-pricing-spotlight .btn-custom-primary,
+.filter-btn,
+.service-pill-btn {
+  box-shadow: none !important;
+  text-shadow: none;
+}
+
+.btn-consultation:hover,
+.btn-custom-primary:hover,
+.btn-custom-outline:hover,
+.btn-custom-secondary:hover,
+.btn-outline-accent:hover,
+.hero-cta-pair a:hover,
+.hero-cta-pair button:hover,
+.cta-button-pair a:hover,
+.cta-button-pair button:hover,
+.pricing-card .btn-custom-primary:hover,
+.pricing-card .btn-custom-outline:hover,
+.hero-pricing-spotlight .btn-custom-primary:hover,
+.filter-btn:hover,
+.service-pill-btn:hover {
+  box-shadow: none !important;
 }
 
 /* Hero Text Hyperlink (Services Hero 3rd CTA replacement) */
